@@ -66,28 +66,3 @@ function clearInfo() {
     refs.infoEl.innerHTML = ''
 }
 
-// function renderMarkup(name) {
-//     const markup = name
-//     .map(({capital,population,flags,languages})=> {
-//         return 
-//         `<ul class="country-list"> 
-//             {#each name}
-//             <li class="country-list__item"><img class="country-list__image" src="${flags.svg}" alt="${name.official}"></li>
-//             <li class="country-list__item"><h2 class="country-list__title">${name.official}</h2></li>
-//             {/#each}
-//         </ul>
-//         <div class="country-info">
-//         <p class="country-text">${capital}</p>
-//         <p class="country-text">${population}</p>
-//         <ul class="lang-list"
-//             {#each languages}
-//             <li class="lang-item">Languages:${languages}</li>
-//             {/#each}
-//         </ul>
-//         </div>
-//         `;
-//     })
-//     .join('');
-//     refs.list.innerHTML = markup;
-//     console.log(name)
-// }
