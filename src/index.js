@@ -16,7 +16,7 @@ function onFormInput(e) {
     e.preventDefault()
     let serchValue = e.target.value.trim()
     if(serchValue==='') {
-            clear()
+            return clear()
         }
     fetchCountries(serchValue)
         .then(countries=>{ 
@@ -24,14 +24,14 @@ function onFormInput(e) {
                 clear()
                 return Notify.info("Too many matches found. Please enter a more specific name.")
             }
-            const markup = countries.map(({flags,name}) => { return `
+            if(countries.length > 1){const markup = countries.map(({flags,name}) => { return `
             <li class="country-item">
             <img class="country-image" src="${flags.svg}" alt="${name.official}" width="40" height="20">
             <p class="country-name">${name.official}</p>
             </li>`})
             .join('')
             clearInfo()
-            refs.listEl.innerHTML = markup;
+            refs.listEl.innerHTML = markup;}
             if(countries.length===1) {
                 clear()
                 const infoMarkup = countries.map(({name,flags,population,capital,languages})=>{return `
